@@ -139,7 +139,8 @@
 							<div class="loader-container">
 								<img src="img/ajax-loader.gif" /> <span> Carregando</span>
 							</div>
-						</div>                        
+						</div>          
+              
 						<form name="register" id="register" class="clearfix" action="index.php?p=resultado" method="post">
 		
 							<div class="filtercontent">
@@ -171,7 +172,28 @@
 								<input type="submit" value="Atualizar" />
 								<!--input type="button" id="bt-close" value="Cancelar" /-->
 							</div>
-						</form>						
+						</form>
+						<script>
+$('#register').submit(function(event) {
+
+	//http://stackoverflow.com/questions/9310112/why-am-i-seeing-an-origin-is-not-allowed-by-access-control-allow-origin-error
+
+	var url = 'http://dev.moneyguru.com.br/tool/health-insurance/search';
+
+	$.ajax({
+		type: "GET",
+		url: url,
+		data: $("#register").serialize(),
+		success: function(data) {console.log(data);},
+		 error: function(data) { console.log(data); }
+
+	});
+	event.preventDefault();
+	return false;
+});
+
+						</script>
+
 					</div>
 				</div>
 				<table class="compare">
