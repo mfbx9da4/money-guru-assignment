@@ -199,6 +199,7 @@ $('#register').submit(function(event) {
 				row += "<td>" + result.namHealthPlan + "</td>"
 				row += "<td>" + result.indQualityHealthInsuranceCompany + "</td>"
 				row += "<td>" + result.priceHealthPlan + "</td>"
+				row += "<td><button class='btn details'>Detalhes</button></td>"
 				row += "</tr>"
 				
 				$('#searchResults').append($(row));
