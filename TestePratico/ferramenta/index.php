@@ -194,12 +194,11 @@ $('#register').submit(function(event) {
 				row += "<tr>"
 				row += "<td>" + result.namHealthInsuranceCompany + "</td>"
 				row += "<td>" + result.modeHealthPlan + "</td>"
-				row += "<td>$R" + result.valueRefundLimit + "</td>"
-				row += "<td>" + result.codAccommodationType + "</td>"
-				row += "<td>" +  + "</td>"
+				row += "<td>$R" + result.refundLimit.valueRefundLimit + "</td>"
+				row += "<td>" + result.codAccomodationType + "</td>"
+				row += "<td>" + result.namHealthPlan + "</td>"
 				row += "<td>" + result.indQualityHealthInsuranceCompany + "</td>"
 				row += "<td>" + result.priceHealthPlan + "</td>"
-				row += "<td>" +  + "</td>"
 				row += "</tr>"
 				
 				$('#searchResults').append($(row));
