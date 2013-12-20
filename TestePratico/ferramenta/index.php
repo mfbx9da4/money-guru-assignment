@@ -184,8 +184,28 @@ $('#register').submit(function(event) {
 		type: "GET",
 		url: url,
 		data: $("#register").serialize(),
-		success: function(data) {console.log(data);},
-		 error: function(data) { console.log(data); }
+		error: function(data) { console.log(data); },
+		success: function(data) {
+			console.log(data.result)
+			var table = $('#compare');
+			for (var i = 0; i < data.result.resultSize; i ++) {
+				var result = data.result.results[i];
+				var row = "";
+				row += "<tr>"
+				row += "<td>" + result.namHealthInsuranceCompany + "</td>"
+				row += "<td>" + result.modeHealthPlan + "</td>"
+				row += "<td>$R" + result.valueRefundLimit + "</td>"
+				row += "<td>" + result.codAccommodationType + "</td>"
+				row += "<td>" +  + "</td>"
+				row += "<td>" + result.indQualityHealthInsuranceCompany + "</td>"
+				row += "<td>" + result.priceHealthPlan + "</td>"
+				row += "<td>" +  + "</td>"
+				row += "</tr>"
+				
+				$('#searchResults').append($(row));
+
+			}
+		}
 
 	});
 	event.preventDefault();
